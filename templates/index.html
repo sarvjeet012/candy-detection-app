@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Candy Detection</title>
+</head>
+<body style="text-align:center; font-family: Arial;">
+
+    <h1>🍬 Candy Detection System</h1>
+
+    <input type="file" id="fileInput">
+    <br><br>
+    <button onclick="uploadImage()">Detect</button>
+
+    <h2>Result:</h2>
+    <pre id="result"></pre>
+
+<script>
+async function uploadImage() {
+    let fileInput = document.getElementById("fileInput");
+
+    if (fileInput.files.length === 0) {
+        alert("Please select an image first!");
+        return;
+    }
+
+    let formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    let response = await fetch("/predict", {
+        method: "POST",
+        body: formData
+    });
+
+    let data = await response.json();
+
+    document.getElementById("result").innerText =
+        JSON.stringify(data, null, 2);
+}
+</script>
+
+</body>
+</html>

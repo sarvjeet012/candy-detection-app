@@ -1,0 +1,17 @@
+# Model files
+*.pth
+
+# Dataset folders
+train/
+valid/
+test/
+
+# Media files
+*.mp4
+*.jpg
+*.png
+
+# Python cache
+__pycache__/
+*.pyc
+candy_fasterrcnn.pth
