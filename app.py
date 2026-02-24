@@ -5,7 +5,7 @@ from torchvision.models.detection import fasterrcnn_resnet50_fpn
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from flask import Flask, request, jsonify
 from PIL import Image
-import gdown.add_callback("on_pretrain_routine_start", callable)
+import gdown
 # See docs page on callbacks https://docs.ultralytics.com/usage/callbacks/ for more information
 app = Flask(__name__)
 
